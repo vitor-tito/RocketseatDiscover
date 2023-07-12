@@ -1,0 +1,190 @@
+* {
+  /*Reseta as margens e preenchimentos padrões do HTML*/
+  margin: 0;
+  padding: 0;
+
+  /*Garante que as medidas de borda delimitem os elementos*/
+  box-sizing: border-box;
+}
+
+:root {
+  /*Seleciona a raiz do projeto (sem classe)*/
+
+  --text-color: white; /*Defini o nome da variável "--text-color"*/
+  --bgurl: url(./assets/assets/bg-mobile.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.1);
+  --surface-color-hover: rgba(255, 255, 255, 0.05);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  --switch-bg-url: url(./assets/assets/moon-stars.svg);
+}
+
+.light {
+  /*Seleciona a classe do projeto*/
+  --text-color: black;
+  --bgurl: url(./assets/assets/bg-mobile-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.05);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --switch-bg-url: url(./assets/assets/sun.svg);
+}
+
+body {
+  /*
+  background-image: url(./assets/assets/bg-mobile.jpg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  */
+
+  /*Propriedade de atalho (shorthand) color-image-repeat-position-size
+    Inserção de plano de fundo napágina, sem repetição, preenchendo a página
+    e centralizado.*/
+  background: var(--bgurl) no-repeat top center/cover;
+}
+
+/*Inserção de fonte e cor padrão*/
+body * {
+  font-family: "Inter", sans-serif;
+  color: var(
+    --text-color
+  ); /*Defini a cor da fonte como branca, puxando da variável a cor*/
+}
+
+/*Adição de parâmetros de caixa de conteúdo*/
+#container {
+  width: 360px;
+  /*margin-right: auto;
+  margin-left: auto;
+  */
+  /*Propriedade de atalho (shorthand)*/
+  margin: 56px auto 0px;
+
+  padding: 0 24px;
+}
+
+#profile {
+  text-align: center;
+  padding: 24px;
+}
+
+/*profile*/
+#profile img {
+  width: 112px;
+  margin: auto;
+}
+
+#profile p {
+  font-weight: 500px;
+  line-height: 24px;
+  margin-top: 8px;
+}
+
+/*Switch*/
+#switch {
+  position: relative;
+  width: 64px;
+  margin: 4px auto;
+}
+
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 1;
+  transform: translateY(-50%);
+}
+
+.light #switch button {
+  right: 0;
+  left: initial;
+}
+
+#switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  backdrop-filter: blur(4px);
+  /*É necessário o prefixo "-webkit-" para navegador Safari*/
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+
+/*Links*/
+ul {
+  list-style: none; /*Remove o underline*/
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 0px;
+}
+
+ul li a {
+  display: flex; /*Muda de "inline" para "block"*/
+  align-items: center; /*Centraliza os itens da lista verticalmente*/
+  justify-content: center; /*Centraliza os itens da lista hozizontalmente*/
+
+  /*Define o preenchimento vertical e horizontal de cada caixa da lista*/
+  padding: 16px 24px;
+
+  /*Define os parâmetros de cada caixa vertical*/
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px;
+
+  backdrop-filter: blur(4px);
+  /*É necessário o prefixo "-webkit-" para navegador Safari*/
+  -webkit-backdrop-filter: blur(4px);
+
+  text-decoration: none;
+  font-weight: 500px;
+
+  transition: background 0.2s;
+}
+
+/*pseudo-selector*/
+ul li a:hover {
+  background: var(--surface-color-hover);
+  border: 1.5px solid var(--text-color);
+}
+
+/*social-links*/
+#social-links {
+  display: flex;
+  /*Com o comando "display: flex" centraliza os itens da lista hozizontalmente*/
+  justify-content: center;
+
+  padding: 24px 0px;
+
+  font-size: 24px;
+}
+
+#social-links a {
+  display: flex;
+  align-items: center; /*Centraliza cada ícone em sua própria caixa verticalmente*/
+  justify-content: center; /*Centraliza cada ícone em sua própria caixa horizontalmente*/
+  padding: 16px; /*Peenche a caixas de cada ícone*/
+  border-radius: 50%; /*Transforma a caixa de cada ícone em um círculo*/
+
+  transition: background 0.2s; /*Adicionando transição de "0,2" segundos quando passar o mouse em cima*/
+}
+
+#social-links a:hover {
+  background: var(--highlight-color);
+}
+
+/*Rodapé*/
+footer {
+  padding: 24px;
+  text-align: center;
+  font-size: 14px;
+}
