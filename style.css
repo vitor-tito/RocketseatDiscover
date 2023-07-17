@@ -113,7 +113,7 @@ body * {
   */
 
   /*Comando "forwards" mantem o elemento da animação em seu estado final*/
-  animation: slide-in 0.2s forwards; 
+  animation: slide-in 0.2s forwards;
 }
 
 #switch button:hover {
@@ -205,16 +205,16 @@ footer {
 /*media queries - (Começa com  @ + regra)*/
 @media (min-width: 700px) {
   :root {
-    --bg-url: url(./assets/assets/bg-desktop-light.jpg);
+    --bgurl: url(./assets/assets/bg-desktop.jpg);
   }
 
   .light {
-    --bg-url: url(./assets/assets/bg-desktop-light.jpg);
+    --bgurl: url(./assets/assets/bg-desktop-light.jpg);
   }
 }
 
 /* animações */
-@keyframes slide-in{
+@keyframes slide-in {
   from {
     left: 0;
   }
@@ -223,7 +223,7 @@ footer {
   }
 }
 
-@keyframes slide-back{
+@keyframes slide-back {
   from {
     left: 50%;
   }
