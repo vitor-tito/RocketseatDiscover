@@ -42,6 +42,7 @@ body {
     Inserção de plano de fundo napágina, sem repetição, preenchendo a página
     e centralizado.*/
   background: var(--bgurl) no-repeat top center/cover;
+  height: 100vh;
 }
 
 /*Inserção de fonte e cor padrão*/
@@ -101,11 +102,22 @@ body * {
   left: 0;
   z-index: 1;
   transform: translateY(-50%);
+
+  animation: slide-back 0.2s;
 }
 
 .light #switch button {
-  right: 0;
+  /*Código sem animação*/
+  /*right: 0;
   left: initial;
+  */
+
+  /*Comando "forwards" mantem o elemento da animação em seu estado final*/
+  animation: slide-in 0.2s forwards; 
+}
+
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
 }
 
 #switch span {
@@ -188,4 +200,34 @@ footer {
   padding: 24px;
   text-align: center;
   font-size: 14px;
+}
+
+/*media queries - (Começa com  @ + regra)*/
+@media (min-width: 700px) {
+  :root {
+    --bg-url: url(./assets/assets/bg-desktop-light.jpg);
+  }
+
+  .light {
+    --bg-url: url(./assets/assets/bg-desktop-light.jpg);
+  }
+}
+
+/* animações */
+@keyframes slide-in{
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back{
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
+  }
 }
